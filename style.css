@@ -39,6 +39,16 @@
     /* Transition */
     --smoothness-1: .6s ease;
 }
+.needed img {
+    display: none;
+    opacity: 0;
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
 .container {
     width: var(--container-width);
     margin: 4rem auto;
@@ -98,6 +108,9 @@ form .needed input:focus {
 }
 form .inneeded input:focus {
     border: var(--border-darker);
+}
+form .needed {
+    position: relative;
 }
 form .needed label, form .inneeded label {
     font-size: var(--regular-size);
