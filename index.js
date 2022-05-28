@@ -26,6 +26,8 @@ form.onsubmit = (event) => {
     needInputs.forEach(input => {
         if (input.value.length === 0) {
             err.push('error')
+            input.previousSibling.previousSibling.style.display = 'block'
+            input.previousSibling.previousSibling.style.opacity = '1'
             input.style.border = 'var(--border-err)'
             input.nextSibling.nextSibling.style.color = 'red'
             input.nextSibling.nextSibling.innerHTML = `Please enter your ${input.name}`
@@ -43,9 +45,13 @@ form.onsubmit = (event) => {
 }
 function validate(field, regex) {
     if (regex.test(field.value)) {
+        field.previousSibling.previousSibling.style.display = 'none'
+        field.previousSibling.previousSibling.style.opacity = '0'
         field.style.border = 'var(--border-blue)'
         field.nextSibling.nextSibling.style.color = 'var(--grey-color)'
     } else {
+        field.previousSibling.previousSibling.style.display = 'block'
+        field.previousSibling.previousSibling.style.opacity = '1'
         field.style.border = 'var(--border-err)'
         field.nextSibling.nextSibling.style.color = 'red'
     }
